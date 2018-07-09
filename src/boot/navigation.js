@@ -7,7 +7,7 @@ import { withNavigation } from 'react-navigation';
 import { Root } from 'native-base';
 import Home from '../screens/Home';
 import BookDetail from '../screens/BookDetail';
-import Page1 from '../screens/Page1';
+import SideMenu from '../components/SideMenu';
 
 const Stack = createStackNavigator(
   {
@@ -15,10 +15,11 @@ const Stack = createStackNavigator(
     Details: BookDetail,
   },
   {
-    navigationOptions:({navigation})=> ({
-      title: 'Welcome to Book Store',
-      headerLeft: <Text onPress={() => navigation.openDrawer()}>Menu</Text>
-    }),
+    // navigationOptions:({navigation})=> ({
+    //   // headerLeft: <Text onPress={() => navigation.openDrawer()}>Menu</Text>
+    //
+    // }),
+    headerMode: 'none',
     initialRouteName: 'Home',
   }
 );
@@ -28,8 +29,7 @@ const App = createDrawerNavigator (
     Stack: Stack
   },
   {
-    contentComponent: Page1,
-    drawerWidth: 300,
+    contentComponent: SideMenu,
   }
 )
 
